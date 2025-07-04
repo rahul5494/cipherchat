@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - CipherChat</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="icon" href="/logo.svg" type="image/svg+xml">
+    <link rel="shortcut icon" href="/images/logo.svg" style="color: cornflowerblue;" type="image/x-icon">
+</head>
+<body id="login-page">
+
+    <div class="login-container">
+        <div class="login-header">
+            <svg class="logo" width="50" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12.89 15.2H11.11L10.65 12.62H8V11.1H10.83L11.17 9.26H8.5V7.74H11.35L11.75 5.5H13.25L12.85 7.74H15.5V9.26H12.97L12.63 11.1H15.38V12.62H12.75L12.89 15.2ZM14.5 18.5C14.5 19.33 13.83 20 13 20C12.17 20 11.5 19.33 11.5 18.5C11.5 17.67 12.17 17 13 17C13.83 17 14.5 17.67 14.5 18.5Z" fill="currentColor"/></svg>
+            <h1>Welcome to CipherChat</h1>
+            <p>Secure, private, end-to-end encrypted messaging.</p>
+        </div>
+
+        <div class="login-form-wrapper">
+            <!-- Step 1: Email Input -->
+            <div id="email-step">
+                <form id="email-form">
+                    <div class="input-group">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="email" placeholder="Enter your email" required>
+                    </div>
+                    <button type="submit" class="btn-primary">Send OTP</button>
+                </form>
+            </div>
+
+            <!-- Step 2: OTP Input -->
+            <div id="otp-step" class="hidden">
+                 <p id="otp-message" class="otp-info-text"></p>
+                <form id="otp-form">
+                    <div class="input-group">
+                        <i class="fas fa-key"></i>
+                        <input type="text" id="otp" placeholder="Enter 6-digit OTP" required pattern="\d{6}" maxlength="6">
+                    </div>
+                    <button type="submit" class="btn-primary">Verify & Login</button>
+                </form>
+                <button id="back-to-email" class="btn-secondary">Use a different email</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="/js/crypto-helpers.js"></script>
+    <script src="/js/main.js"></script>
+</body>
+</html>

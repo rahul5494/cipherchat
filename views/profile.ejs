@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Manage your ConnectSphere profile">
+  <meta name="author" content="ConnectSphere Team">
+  <meta name="robots" content="noindex, nofollow">
+  <title>ConnectSphere - Profile</title>
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <script type="module" src="/main.js" defer></script>
+</head>
+<body class="min-h-screen bg-gradient-to-br from-indigo-900 via-gray-900 to-black transition-all duration-1000">
+  <header class="bg-indigo-800 bg-opacity-90 p-4 flex justify-between items-center shadow-2xl glass-effect sticky top-0 z-50">
+    <div class="flex items-center">
+      <a href="/chats" class="mr-4 text-white hover:text-indigo-300 transition-all duration-300" aria-label="Back to chats"><i class="fas fa-arrow-left text-2xl"></i></a>
+      <img src="/logo.svg" alt="ConnectSphere Logo" class="w-12 mr-4 animate__animated animate__pulse animate__infinite">
+      <h1 class="text-2xl font-extrabold text-white neon-text">Your Profile</h1>
+    </div>
+    <div class="flex items-center space-x-4">
+      <button id="theme-toggle" class="text-2xl text-white hover:text-indigo-300 transition-all duration-300" aria-label="Toggle theme">
+        <i class="fas fa-moon"></i>
+      </button>
+      <button id="logout-btn" class="bg-red-600 text-white p-2 rounded-lg hover:bg-red-700 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-neon" aria-label="Logout">
+        <i class="fas fa-sign-out-alt mr-2"></i> Logout
+      </button>
+    </div>
+  </header>
+  <div class="container mx-auto p-6 max-w-md">
+    <div id="error-box" class="hidden absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-red-600 text-white p-4 rounded-lg shadow-lg z-50 animate__animated animate__shakeX"></div>
+    <div id="loading-spinner" class="hidden fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50">
+      <div class="w-16 h-16 border-4 border-indigo-600 border-t-transparent rounded-full animate-spin neon-spinner"></div>
+    </div>
+    <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-2xl animate__animated animate__fadeInUp glass-effect">
+      <h2 class="text-3xl font-extrabold mb-6 text-gray-800 dark:text-white neon-text">Profile Settings</h2>
+      <form id="profile-form" class="space-y-6" aria-label="Profile update form">
+        <div>
+          <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-200">Email</label>
+          <input type="email" id="email" class="w-full p-4 border border-gray-300 dark:border-gray-600 rounded-lg bg-transparent dark:bg-gray-700 dark:text-white" value="<%= user.email %>" disabled aria-disabled="true">
+        </div>
+        <div>
+          <label for="profile-username" class="block text-sm font-medium text-gray-700 dark:text-gray-200">Username</label>
+          <div class="relative">
+            <input type="text" id="profile-username" class="w-full p-4 border border-gray-300 dark:border-gray-600 rounded-lg bg-transparent dark:bg-gray-700 dark:text-white focus:ring-4 focus:ring-indigo-500 transition-all duration-300 hover:shadow-lg" value="<%= user.username %>" required aria-required="true">
+            <i class="fas fa-user absolute right-4 top-4 text-gray-400 dark:text-gray-300"></i>
+          </div>
+          <p id="username-error" class="hidden text-red-500 text-sm mt-2">Username must be 9 lowercase letters</p>
+        </div>
+        <button type="submit" class="w-full bg-indigo-600 text-white p-4 rounded-lg hover:bg-indigo-700 focus:ring-4 focus:ring-indigo-500 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-neon">
+          <i class="fas fa-save mr-2"></i> Save Changes
+        </button>
+      </form>
+    </div>
+    <footer class="mt-8 text-center">
+      <p class="text-xs text-gray-500 dark:text-gray-400">© 2025 ConnectSphere. All rights reserved.</p>
+      <a href="/privacy" class="text-xs text-indigo-500 hover:text-indigo-600 transition-all duration-300">Privacy Policy</a>
+    </footer>
+  </div>
+</body>
+</html>

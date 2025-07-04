@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat with <%= peerUser.username %> - CipherChat</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="icon" href="/images/logo.svg" type="image/svg+xml">
+</head>
+<body id="conversation-page" data-user-id="<%= user.id %>" data-peer-id="<%= peerUser.id %>">
+
+    <div class="app-container chat-view">
+        <header class="app-header">
+            <a href="/chats" class="icon-btn back-btn"><i class="fas fa-arrow-left"></i></a>
+            <div class="chat-peer-info">
+                <div class="avatar"><%= peerUser.username.charAt(0) %></div>
+                <div class="peer-details">
+                    <h2><%= peerUser.username %></h2>
+                    <div id="peer-status">Connecting...</div>
+                    <div id="typing-indicator">
+                        <span>typing</span>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="header-actions">
+                <button id="theme-toggler" class="icon-btn"><i class="fas fa-moon"></i></button>
+            </div>
+        </header>
+
+        <main id="messages-container" class="main-content messages-area">
+            <!-- Messages will be populated by JS -->
+             <div class="loading-placeholder">
+                <i class="fas fa-spinner fa-spin"></i>
+                <p>Loading secure session...</p>
+            </div>
+        </main>
+
+        <footer class="chat-footer">
+            <!-- ADDED: New container for the file preview -->
+            <div id="file-attachment-preview" class="hidden">
+                <div id="file-preview-content"></div>
+                <button id="cancel-attachment-btn" class="icon-btn"><i class="fas fa-times"></i></button>
+            </div>
+            <form id="message-form">
+                <button type="button" id="attachment-button" class="icon-btn">
+                    <i class="fas fa-paperclip"></i>
+                </button>
+                <input type="file" id="file-input" class="hidden">
+                <input type="text" id="message-input" placeholder="Type a message..." autocomplete="off">
+                <button type="submit" id="send-button" class="icon-btn send-btn">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </form>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="/js/crypto-helpers.js"></script>
+    <script src="/js/main.js"></script>
+</body>
+</html>

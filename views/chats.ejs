@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chats - CipherChat</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="icon" href="/images/logo.svg" type="image/svg+xml">
+</head>
+<body id="chats-page" data-user-id="<%= user.id %>">
+
+    <div class="app-container">
+        <header class="app-header">
+            <div class="logo-container">
+                 <svg class="logo" width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12.89 15.2H11.11L10.65 12.62H8V11.1H10.83L11.17 9.26H8.5V7.74H11.35L11.75 5.5H13.25L12.85 7.74H15.5V9.26H12.97L12.63 11.1H15.38V12.62H12.75L12.89 15.2ZM14.5 18.5C14.5 19.33 13.83 20 13 20C12.17 20 11.5 19.33 11.5 18.5C11.5 17.67 12.17 17 13 17C13.83 17 14.5 17.67 14.5 18.5Z" fill="currentColor"/></svg>
+                <h2>Chats</h2>
+            </div>
+            <div class="header-actions">
+                <button id="theme-toggler" class="icon-btn"><i class="fas fa-moon"></i></button>
+                <button id="logout-button" class="icon-btn"><i class="fas fa-sign-out-alt"></i></button>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div class="search-bar-container">
+                <i class="fas fa-search"></i>
+                <input type="text" id="search-input" placeholder="Search for users or start a new chat">
+            </div>
+
+            <div id="search-results" class="hidden">
+                <!-- Search results will be populated by JS -->
+            </div>
+
+            <div id="conversations-list">
+                <!-- Conversation items will be populated by JS -->
+                <div class="loading-placeholder">
+                    <i class="fas fa-spinner fa-spin"></i>
+                    <p>Loading conversations...</p>
+                </div>
+            </div>
+            
+            <div id="no-conversations" style="display: none;">
+                <i class="fas fa-comments"></i>
+                <h3>No conversations yet</h3>
+                <p>Use the search bar above to find a user and start chatting.</p>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="/js/crypto-helpers.js"></script>
+    <script src="/js/main.js"></script>
+</body>
+</html>
